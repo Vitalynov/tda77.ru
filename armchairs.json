@@ -1,0 +1,32 @@
+{
+    "031": {
+        "name": "КРЕСЛО ПЛАСТИКОВОЕ СКЛАДНОЕ КД-15",
+        "image": "img/product/armchairs/kd-15-1.png",
+        "price": 3800
+    },
+    "032": {
+        "name": "КРЕСЛО ПЛАСТИКОВОЕ СКЛАДНОЕ КД-15-У",
+        "image": "img/product/armchairs/kd-15-U.png",
+        "price": 0
+    },
+    "033": {
+        "name": "КРЕСЛО ПОЛУМЯГКОЕ СКЛАДНОЕ КД-8",
+        "image": "img/product/armchairs/kd-8.png",
+        "price": 3800
+    },
+    "034": {
+        "name": "КРЕСЛО ПОЛУМЯГКОЕ ДЛЯ ТЕЛЕСКОПИЧЕСКИХ ТРИБУН",
+        "image": "img/product/armchairs/semi-soft_telescope1.png",
+        "price": 4300
+    },
+    "035": {
+        "name": "КРЕСЛО МЯГКОЕ ДЛЯ ТЕЛЕСКОПИЧЕСКИХ ТРИБУН",
+        "image": "img/product/armchairs/soft-telescope2.png",
+        "price": 4900
+    },
+    "036": {
+        "name": "КРЕСЛО МЯГКОЕ СКЛАДНОЕ КАСКАД VIP",
+        "image": "img/product/armchairs/kaskad.png",
+        "price": 7000
+    }
+}

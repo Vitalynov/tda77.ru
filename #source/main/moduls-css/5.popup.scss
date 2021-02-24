@@ -1,0 +1,87 @@
+.modal {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.8);
+	overflow: auto;
+	//opacity: 0;
+
+	z-index: 15;
+
+	&-clouse {
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		top: 3%;
+		right: 8%;
+		font-size: 30px;
+		font-weight: 900;
+		color: #fff;
+		cursor: pointer;
+		background: #7f0006ff;
+		border-radius: 10px;
+		padding: 6px 11px;
+		transition: 0.3s;
+		z-index: 300;
+
+		&:hover {
+			background: #e0000eff;
+		}
+	}
+
+	&-container {
+		position: relative;
+		height: 100vh;
+	}
+
+	&-content {
+		background: #fff;
+		margin: 5em auto;
+		padding: 1.5em;
+		border: 2px solid #888;
+		border-radius: 15px;
+		width: 90%;
+		font-size: 1.2em;
+		line-height: 1.7em;
+		box-shadow: 0px 0px 18px 0px #308fe0;
+
+		&__img {
+			//display: inline-block;
+			width: 200px;
+			float: left;
+			margin: 0 10px 0 0;
+
+			@media (max-width: 430px) {
+				display: block;
+				margin: 0 auto;
+				float: none;
+			}
+
+			& > img {
+				width: 100%;
+			}
+		}
+
+		&__text {
+			text-indent: 5%;
+		}
+	}
+}
+
+.fadeIn {
+	animation-name: fadeIn;
+	animation-duration: 0.5s;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0.1;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

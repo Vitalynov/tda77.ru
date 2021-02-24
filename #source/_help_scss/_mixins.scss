@@ -1,0 +1,36 @@
+$colorBrend:#2692ff; //Цвет голубой, бренд.
+$colorLightGray:#9c9c9c; //Цвет голубой, бренд.
+$maxWidth: 1170; //Максимальная ширина контента.
+
+//Позволяет делать грид таблицу с переменными: $cols - количество колонок в ряду, $margin - маржин, $heigt - высота колонок.
+@mixin grid($cols, $margin, $heigt) {
+    float: left;
+    background: paleturquoise;
+    margin-right: $margin;
+    margin-bottom: $margin;
+    height: $heigt;
+    width: ((100% - (($cols - 1) * $margin)) / $cols);
+
+    &:nth-child(#{$cols}n) {
+        margin-right: 0;
+    }
+}
+
+$colorBrend:#2692ff;
+
+//Адаптивный текст
+
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+//ограничение контента
+@mixin container ($Width) {
+    display: block;
+    width: 100%;
+    max-width: $Width + 20px;
+    padding: 0 10px;
+    margin: 0 auto;
+}

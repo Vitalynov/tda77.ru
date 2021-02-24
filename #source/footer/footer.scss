@@ -1,0 +1,39 @@
+/* Footer block*/
+
+//пример внесения миксина адаптивного шрифта и контейнера
+// .box p {
+//     @include adaptiv-font(16, 10);
+//     @include container (1170px)
+// }
+
+.footer {
+    background-color: #fff;
+
+    &-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 3% 0;
+    }
+
+
+    &-column {
+        flex: 0 1 40%;
+        color: #646464;
+        @include adaptiv-font(13, 10);
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: 0.08em;
+
+        &>ul>li {
+
+            >a {
+                text-decoration: underline;
+                color: #646464;
+            }
+        }
+    }
+
+    &-contacts {
+        flex: 0 1 15%;
+    }
+}

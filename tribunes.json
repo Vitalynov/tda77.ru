@@ -1,0 +1,32 @@
+{
+    "001": {
+        "name": "Трибуны для зрителей без навеса",
+        "image": "img/product/tribune/tribune.png",
+        "price": 2300
+    },
+    "002": {
+        "name": "Трибуны для зрителей с навесом",
+        "image": "img/product/tribune/naves.png",
+        "price": 3300
+    },
+    "003": {
+        "name": "Трибуны для зрителей телескопические",
+        "image": "img/product/tribune/teleskop.png",
+        "price": 3950
+    },
+    "004": {
+        "name": "Трибуны с подъемом первого ряда",
+        "image": "img/product/tribune/podem.png",
+        "price": 0
+    },
+    "005": {
+        "name": "Кабинка для запасных игроков и судей",
+        "image": "img/product/tribune/kabinka.png",
+        "price": 3900
+    },
+    "006": {
+        "name": "Трибуны для зрителей - мобильные",
+        "image": "img/product/tribune/mobile.png",
+        "price": 2850
+    }
+}

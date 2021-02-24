@@ -1,0 +1,70 @@
+//about*****************************************************
+.about {
+	width: 100%;
+	//height: 100%;
+	padding: 80px 0 20px 0;
+
+	&-titele {
+		position: relative;
+		padding: 0 0 30px 0;
+
+		&::after {
+			content: '';
+			display: block;
+			//position: absolute;
+			width: 80%;
+			height: 2px;
+			border-radius: 50%;
+			margin: 0 auto;
+			margin-top: 1.5rem;
+			background-color: $colorBrend;
+		}
+	}
+
+	&-content {
+		&__img {
+			float: left;
+			width: 350px;
+			padding: 20px;
+
+			& > img {
+				display: block;
+				max-width: 100%;
+				overflow: hidden;
+			}
+		}
+
+		&__titele {
+			//font-size: 26px;
+			@include adaptiv-font(26, 16);
+			padding: 0 0 10px 0;
+		}
+
+		&__text {
+			display: block;
+
+			//padding: 20px;
+			& > li {
+				padding: 0 0 10px 0;
+				text-indent: 50px;
+			}
+		}
+
+		&-contacts {
+			display: flex;
+		}
+
+		@media (max-width: 425px) {
+			&__img {
+				margin: 0 auto;
+				width: 250px;
+				float: unset;
+			}
+		}
+	}
+
+	.text-sing {
+		text-align: right;
+		margin: 0 30px 0 0;
+	}
+}

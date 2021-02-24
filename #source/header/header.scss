@@ -1,0 +1,453 @@
+/*Header block*/
+//пример внесения миксина адаптивного шрифта и контейнера
+// .box p {
+//     @include adaptiv-font(16, 10);
+//     @include container (1170px)
+// }
+
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 15;
+
+	&-body {
+		display: flex;
+		position: relative;
+		justify-content: space-between;
+		height: 120px;
+		align-items: center;
+		z-index: 10;
+		transition: 0.5s;
+	}
+
+	&-logo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		overflow: hidden;
+		position: relative;
+
+		width: 210px;
+		height: 80px;
+
+		opacity: 0;
+		z-index: 30;
+
+		animation-name: fadeInLeftLogo;
+		animation-duration: 2s;
+		animation-delay: 0.5s;
+		animation-fill-mode: forwards;
+
+		@media (max-width: 1025px) {
+			width: 160px;
+			height: 70px;
+		}
+		@media (max-width: 860px) {
+			width: 125px;
+			height: 58px;
+		}
+		@media (max-width: 460px) {
+			width: 115px;
+			height: 51px;
+		}
+		@media (max-width: 430px) {
+			width: 90px;
+			height: 30px;
+		}
+
+		&__img {
+			height: 58px;
+			width: 175px;
+			@media (max-width: 1025px) {
+				height: 55px;
+				width: 150px;
+			}
+			@media (max-width: 860px) {
+				height: 45px;
+				width: 120px;
+			}
+			@media (max-width: 460px) {
+				height: 40px;
+				width: 110px;
+			}
+			@media (max-width: 430px) {
+				height: 32px;
+				width: 85px;
+			}
+
+			& > img {
+				width: 100%;
+				object-fit: cover;
+				z-index: 32;
+			}
+		}
+
+		& > p {
+			z-index: 32;
+			font-size: 13px;
+			font-family: 'PT Sans', sans-serif;
+			color: $colorBrend;
+			letter-spacing: 1px;
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: 600;
+			transition: 0.5s;
+			@media (max-width: 1025px) {
+				font-size: 11px;
+			}
+			@media (max-width: 860px) {
+				font-size: 10px;
+				letter-spacing: 0px;
+			}
+			@media (max-width: 460px) {
+				font-size: 9px;
+				letter-spacing: 0px;
+			}
+		}
+	}
+	&-contacts {
+		display: flex;
+		justify-content: flex-end;
+		padding-bottom: 15px;
+		@media (max-width: 600px) {
+			flex-direction: column;
+			padding-bottom: 0;
+		}
+		@media (max-width: 430px) {
+			display: none;
+		}
+		&__mail {
+			@media (max-width: 650px) {
+			}
+		}
+
+		&__wrapper {
+			display: flex;
+			align-items: center;
+			margin: 0 20px 0 0;
+			&:last-child {
+				margin: 0;
+			}
+		}
+		&__icon {
+			width: 20px;
+			height: 20px;
+			overflow: hidden;
+			margin: 0 5px 0 0;
+
+			& > img {
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+		&__name {
+			color: #fff;
+			font-family: 'Roboto', sans-serif;
+			font-size: 13px;
+			letter-spacing: 1px;
+			transition: color 0.3s ease-in;
+			@media (max-width: 600px) {
+				font-size: 14px;
+			}
+
+			&:hover {
+				color: $colorBrend;
+			}
+		}
+	}
+
+	&-burger {
+		display: none;
+	}
+
+	&-menu {
+		opacity: 0;
+		animation-name: fadeInDown;
+		animation-duration: 2s;
+		animation-delay: 0.5s;
+		animation-fill-mode: forwards;
+	}
+
+	&-list {
+		display: flex;
+		position: relative;
+		z-index: 2;
+
+		& > li {
+			list-style: none;
+			margin: 0 30px 0 0;
+
+			&:last-child {
+				margin: 0 0 0 0;
+			}
+		}
+
+		&__link {
+			position: relative;
+			font-family: 'PT Sans', sans-serif;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 14px;
+			text-decoration: none;
+			padding: 10px 0;
+			transition: 0.5s;
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				width: 0;
+				height: 2px;
+				background-color: $colorBrend;
+				transition: 0.3s;
+			}
+
+			&:hover {
+				color: $colorBrend;
+
+				&::after {
+					left: 0;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 430px) {
+	._dynamic_adapt_430 {
+		font-family: 'PT Sans', sans-serif;
+		font-size: 12px;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+		color: $colorBrend;
+	}
+}
+
+//_dynamic_adapt_430
+.block {
+	background: rgba(51, 51, 51, 0.93);
+	height: 80px;
+	padding: 8px 20px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	box-shadow: 0px 8px 10px rgb(36, 36, 36);
+
+	.header-logo {
+		width: 17%;
+		height: 100%;
+		@media (max-width: 850px) {
+			width: 135px;
+			height: 64px;
+		}
+		@media (max-width: 460px) {
+			width: 100px;
+			height: 47px;
+		}
+		@media (max-width: 390px) {
+			width: 100px;
+			height: 30px;
+		}
+		&__img {
+			width: 134px;
+			height: 50px;
+			@media (max-width: 460px) {
+				width: 100px;
+				height: 38px;
+			}
+			@media (max-width: 390px) {
+				width: 80px;
+				height: 35px;
+			}
+		}
+
+		& > p {
+			font-size: 10px;
+			letter-spacing: 0.8px;
+		}
+		@media (max-width: 850px) {
+			& > P {
+				letter-spacing: 0.4px;
+			}
+		}
+		@media (max-width: 460px) {
+			& > P {
+				font-size: 8px;
+				letter-spacing: 0px;
+			}
+		}
+	}
+
+	.header-list > li {
+		margin: 0 25px 0 0;
+
+		&:last-child {
+			margin: 0 0 0 0;
+		}
+		@media (max-width: 860px) {
+			margin: 4rem 0;
+		}
+	}
+}
+
+.activeNav {
+	color: $colorBrend;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		bottom: 0;
+		background-color: $colorBrend;
+		transition: 0.3s;
+	}
+}
+
+@media (max-width: 860px) {
+	body.lock {
+		overflow: hidden;
+	}
+
+	.header {
+		&-body {
+			height: 80px;
+		}
+
+		&-burger {
+			display: block;
+			position: relative;
+			width: 30px;
+			height: 20px;
+			margin-right: 5%;
+			z-index: 30;
+			@media (max-width: 390px) {
+				margin-right: 2%;
+			}
+
+			& > span {
+				background-color: $colorBrend;
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				left: 0;
+				top: 9px;
+				transition: all 0.3s ease 0s;
+			}
+
+			&::before,
+			&::after {
+				content: '';
+				background-color: $colorBrend;
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				left: 0;
+				transition: all 0.3s ease 0s;
+			}
+
+			&::before {
+				top: 0;
+			}
+
+			&::after {
+				bottom: 0;
+			}
+
+			&.active span {
+				transform: scale(0);
+			}
+
+			&.active::before {
+				transform: rotate(45deg);
+				top: 9px;
+			}
+
+			&.active::after {
+				transform: rotate(-45deg);
+				bottom: 9px;
+			}
+		}
+
+		&-menu {
+			position: fixed;
+			top: -100%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.9);
+			padding: 70px 10px 20px 10px;
+			text-align: center;
+			transition: all 0.3s ease 0s;
+
+			& ul li {
+				margin: 4rem 0;
+			}
+
+			&.active {
+				top: 0;
+				padding: 10px 10px 20px 10px;
+			}
+		}
+
+		&-list {
+			display: block;
+
+			li {
+				margin: 20px;
+			}
+		}
+	}
+}
+
+@media (max-width: 460px) {
+	.header {
+		&-body {
+			height: 60px;
+		}
+	}
+}
+
+@media (max-width: 390px) {
+	._dynamic_adapt_430 {
+		text-align: center;
+		padding: 0 5px;
+	}
+}
+
+.smartphone {
+	animation-name: phone-rotate;
+	animation-duration: 4s;
+	//animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	//animation-direction: alternate;
+}
+
+@keyframes phone-rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	3% {
+		transform: rotate(30deg);
+	}
+	6% {
+		transform: rotate(-30deg);
+	}
+	9% {
+		transform: rotate(15deg);
+	}
+	12% {
+		transform: rotate(-15deg);
+	}
+	15% {
+		transform: rotate(0deg);
+	}
+	100% {
+	}
+}

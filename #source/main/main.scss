@@ -1,0 +1,877 @@
+/*Main block*/
+
+//пример внесения миксина адаптивного шрифта и контейнера
+// .box p {
+//     @include adaptiv-font(16, 10);
+//     @include container (1170px)
+// }
+
+.baner {
+	min-height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+		background: -moz-linear-gradient(
+			top,
+			rgba(0, 0, 0, 0.9) 0%,
+			rgba(0, 0, 0, 0.9) 55%,
+			rgba(38, 146, 255, 0.9) 100%
+		);
+		background: -webkit-linear-gradient(
+			top,
+			rgba(0, 0, 0, 0.9) 0%,
+			rgba(0, 0, 0, 0.9) 55%,
+			rgba(38, 146, 255, 0.9) 100%
+		);
+		background: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0.9) 0%,
+			rgba(0, 0, 0, 0.9) 55%,
+			rgba(38, 146, 255, 0.9) 100%
+		);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6000000', endColorstr='#e62692ff', GradientType=0);
+	}
+
+	&-container {
+		min-height: 100vh;
+		position: relative;
+	}
+
+	&-video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-height: 100vh;
+		z-index: 1;
+
+		& > video {
+			min-height: 100vh;
+			object-fit: cover;
+		}
+
+		@media (max-width: 460px) {
+			padding: 0 0 100vh 0;
+		}
+	}
+
+	&-content {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 0 10px;
+		z-index: 10;
+
+		&__text {
+			flex: 1 0 65%;
+		}
+
+		&__img {
+			flex: 1 0 35%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			animation-name: swing;
+			animation-duration: 10s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+
+			& > img {
+				width: 100%;
+			}
+		}
+
+		&__subtitel {
+			color: $colorLightGray;
+			font-family: 'Montserrat', sans-serif;
+			@include adaptiv-font(14, 10);
+			text-align: left;
+			letter-spacing: 0.1em;
+			line-height: 30px;
+			padding: 5% 8% 0 0;
+			position: relative;
+
+			&::before {
+				content: '';
+				display: block;
+				width: 70%;
+				height: 2px;
+				margin: 0 auto;
+				margin-bottom: 1.5rem;
+				background: linear-gradient(
+					to right,
+					rgba(255, 255, 255, 0.2) 0%,
+					white 30%,
+					white 71%,
+					rgba(255, 255, 255, 0.2) 100%
+				);
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#33ffffff", endColorstr="#33ffffff", GradientType=1);
+			}
+		}
+	}
+
+	&-text {
+		&__services {
+			display: flex;
+
+			&--item {
+				flex: 0 1 33.333%;
+				font-family: 'Montserrat', sans-serif;
+				color: $colorLightGray;
+				@include adaptiv-font(14, 10);
+				padding: 15px 0 15px 65px;
+			}
+		}
+	}
+
+	&-production {
+		background: url('../img/icons/icon01.png');
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: 40px 40px;
+		padding: 15px 0 15px 45px;
+		animation-name: fadeInLeft;
+		animation-duration: 2s;
+	}
+
+	&-delivery {
+		background: url('../img/icons/icon02.png');
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: 50px 40px;
+		padding: 15px 0 15px 65px;
+		animation-name: fadeInDown;
+		animation-duration: 2s;
+	}
+
+	&-assembly {
+		background: url('../img/icons/icon03.png');
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: 40px 40px;
+		padding: 15px 0 15px 45px;
+		animation-name: fadeInRight;
+		animation-duration: 2s;
+	}
+
+	&-btn {
+		position: relative;
+		margin: 5% 0 0 0;
+		overflow: hidden;
+		z-index: 10;
+		transition: 0.3s;
+		box-shadow: 0 5px 20px #00000098;
+		//animation-name: headShake;
+		animation-name: shake;
+		//animation-name: pulse;
+		animation-timing-function: ease-in-out;
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+		animation-delay: 3s;
+
+		&:hover {
+			box-shadow: 0 4px 10px $colorBrend;
+			background: rgb(201, 201, 201);
+			background: -moz-linear-gradient(
+				top,
+				rgba(201, 201, 201, 1) 0%,
+				rgba(246, 246, 246, 1) 99%,
+				rgba(246, 246, 246, 1) 99%,
+				rgba(117, 117, 119, 1) 100%
+			);
+			background: -webkit-linear-gradient(
+				top,
+				rgba(201, 201, 201, 1) 0%,
+				rgba(246, 246, 246, 1) 99%,
+				rgba(246, 246, 246, 1) 99%,
+				rgba(117, 117, 119, 1) 100%
+			);
+			background: linear-gradient(
+				to bottom,
+				rgba(201, 201, 201, 1) 0%,
+				rgba(246, 246, 246, 1) 99%,
+				rgba(246, 246, 246, 1) 99%,
+				rgba(117, 117, 119, 1) 100%
+			);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9c9c9', endColorstr='#757577', GradientType=0);
+			animation-play-state: paused;
+		}
+	}
+
+	&-bonuchi {
+		display: block;
+		text-align: right;
+		padding: 3% 8% 0 0;
+	}
+
+	@media (max-width: 430px) {
+		.titele-h1 {
+			font-size: 18px;
+			text-align: center;
+			font-weight: 600;
+			line-height: 150%;
+			letter-spacing: 0.2em;
+			margin: 0 0 8% 0;
+		}
+
+		&-content {
+			display: block;
+		}
+
+		&-production {
+			flex: 0 1 38%;
+			background-size: 25px 25px;
+			padding: 10px 0 10px 30px;
+		}
+
+		&-delivery {
+			flex: 0 1 38%;
+			background-size: 30px 25px;
+			padding: 10px 0 10px 40px;
+		}
+
+		&-assembly {
+			flex: 0 1 26%;
+			background-size: 25px 25px;
+			padding: 10px 0 10px 30px;
+		}
+
+		&-content__subtitel {
+			text-align: left;
+			letter-spacing: 0.1em;
+			line-height: 20px;
+			padding: 0 5% 0;
+			position: relative;
+		}
+
+		&-content__img {
+			width: 40%;
+			margin: 0 auto;
+		}
+
+		&-btn {
+			font-size: 12px;
+			width: 170px;
+			margin: 5% auto 0 auto;
+		}
+
+		&-content {
+			transform: translate(-50%, -50%);
+		}
+
+		.scrollDown a {
+			padding-top: 38px;
+		}
+	}
+
+	@media (max-width: 380px) {
+		.titele-h1 {
+			font-size: 16px;
+			margin: 0 0 13% 0;
+		}
+
+		&-content__subtitel {
+			display: none;
+		}
+
+		&-text__services {
+			padding-bottom: 7%;
+		}
+
+		&-content__img {
+			padding-bottom: 7%;
+		}
+
+		.scrollDown a {
+			padding-top: 55px;
+		}
+	}
+}
+
+.video {
+	&-media {
+		width: 100%;
+		height: auto;
+
+		@media (max-width: 460px) {
+			min-height: 100vh;
+			position: absolute;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+		}
+	}
+}
+
+//анимация scrollDoun
+.scroll a {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	z-index: 10;
+	display: inline-block;
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	transition: 0.3s;
+
+	&:hover {
+		opacity: 0.5;
+	}
+}
+
+.scrollDown a {
+	padding-top: 60px;
+
+	& > span {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 24px;
+		height: 24px;
+		margin-left: -12px;
+		border-left: 2px solid #fff;
+		border-bottom: 2px solid #fff;
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		-webkit-animation: sdb04 2s infinite;
+		animation: sdb04 2s infinite;
+		box-sizing: border-box;
+	}
+}
+
+// ФОРМА сбора характеристик трибун и отправки данных
+.content {
+	&-form {
+		position: absolute;
+		width: 500px;
+		height: 530px;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #646464;
+		padding: 2% 2%;
+
+		@media (max-width: 500px) {
+			width: 411px;
+			height: 450px;
+		}
+
+		@media (max-width: 430px) {
+			width: 330px;
+			height: 380px;
+		}
+
+		@media (max-width: 330px) {
+			width: 310px;
+			height: 350px;
+		}
+	}
+}
+
+/*- Калькулятор стоимости трибун-*/
+.popupCalc {
+	display: none;
+	//display: block;
+
+	&-content {
+		position: absolute;
+		width: 500px;
+		height: 600px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%); //анимация
+		//opacity: 0;
+		background-color: transparent;
+		border-radius: 5px;
+		box-shadow: 0 0 25px #2692ff;
+		animation-name: fadeInCalc;
+		animation-duration: 1s;
+
+		@media (max-width: 430px) {
+			width: 390px;
+			height: 495px;
+		}
+
+		@media (max-width: 380px) {
+			width: 350px;
+		}
+
+		@media (max-width: 325px) {
+			width: 306px;
+			height: 430px;
+			top: 45%;
+		}
+	}
+}
+
+// .fadeInCalc {
+
+// }
+
+@keyframes fadeInCalc {
+	from {
+		opacity: 0.1;
+		transform: translate(-50%, -150%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+}
+
+.clouseCalc {
+	right: 1%;
+	top: 1%;
+
+	@media (max-width: 380px) {
+		right: 0%;
+		top: 0%;
+	}
+
+	&:hover {
+		background: brown;
+	}
+}
+
+/*- Выбор типа ТРИБУН-*/
+.contentCalc {
+	&-chooseTribune {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		width: 100%;
+		height: 100%;
+		padding: 10px;
+
+		@media (max-width: 325px) {
+			padding: 3px;
+		}
+
+		&__titele {
+			font-size: 26px;
+			color: #fff;
+			text-align: center;
+			letter-spacing: 2px;
+
+			@media (max-width: 380px) {
+				font-size: 22px;
+			}
+
+			@media (max-width: 325px) {
+				font-size: 18px;
+			}
+		}
+
+		&__tribuns {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+	}
+
+	&-contacts {
+		display: none;
+	}
+}
+
+.chooseTribune {
+	&-item {
+		padding: 10px;
+		flex: 0 1 35%;
+		border: 1px solid #fff;
+		border-radius: 5px;
+		box-shadow: 0 0 15px rgba(255, 255, 255, 0.418);
+		margin: 10px;
+
+		@media (max-width: 430px) {
+			width: 43%;
+		}
+
+		&__labelInput {
+			cursor: pointer;
+
+			&:hover > div > img {
+				animation-name: shakeImgCalc;
+				animation-duration: 0.8s;
+				animation-timing-function: linear;
+				animation-direction: alternate;
+			}
+		}
+
+		&__titele {
+			text-align: center;
+			font-size: 16px;
+			color: #fff;
+			letter-spacing: 2px;
+			overflow: hidden;
+
+			@media (max-width: 380px) {
+				font-size: 13px;
+				letter-spacing: 1px;
+			}
+			@media (max-width: 325px) {
+			}
+		}
+
+		&__img {
+			width: 180px;
+
+			@media (max-width: 430px) {
+				width: 137px;
+			}
+
+			@media (max-width: 380px) {
+				width: 120px;
+			}
+
+			@media (max-width: 325px) {
+				width: 110px;
+			}
+
+			& > img {
+				width: 100%;
+			}
+		}
+
+		&__radio {
+			width: 20px;
+			margin: 0 auto;
+			cursor: pointer;
+
+			& > input {
+				cursor: pointer;
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+
+	&-btn {
+		@media (max-width: 380px) {
+			width: 160px;
+		}
+	}
+}
+
+/*- Ввод ДАННЫХ для расчета трибун-*/
+.contentCalc {
+	&-inputData {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		width: 100%;
+		height: 100%;
+		padding: 10px;
+
+		&__titele {
+			font-size: 26px;
+			color: #fff;
+			text-align: center;
+			letter-spacing: 2px;
+			margin-bottom: 20px;
+
+			@media (max-width: 325px) {
+				font-size: 22px;
+			}
+		}
+
+		&__input {
+			position: relative;
+			margin-bottom: 40px;
+			width: 70%;
+
+			@media (max-width: 430px) {
+				width: 90%;
+			}
+
+			&:nth-child(6) {
+				margin-bottom: 0px;
+			}
+
+			& > input,
+			& > textarea {
+				position: relative;
+				background: transparent;
+				outline: none;
+				border: none;
+				width: 100%;
+				color: #fff;
+				padding-bottom: 10px;
+				font-size: 16px;
+				letter-spacing: 1px;
+				font-weight: 300;
+				border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+			}
+
+			& > span {
+				position: absolute;
+				left: 0;
+				font-size: 16px;
+				font-weight: 300;
+				display: inline-block;
+				pointer-events: none;
+				letter-spacing: 1px;
+				color: rgba(255, 255, 255, 0.5);
+				transition: 0.3s;
+			}
+
+			& > input:focus ~ span,
+			> textarea:focus ~ span,
+			> input:valid ~ span,
+			> textarea:valid ~ span {
+				transform: translateY(-24px);
+				color: #2692ff;
+				font-size: 14px;
+			}
+
+			& > input:focus,
+			> textarea:focus,
+			> input:valid,
+			> textarea:valid {
+				border-bottom-color: #fff;
+			}
+		}
+	}
+}
+
+.inputData-btn {
+	@media (max-width: 430px) {
+		width: 160px;
+	}
+}
+
+/*- Ввод КОНТАКТНЫХ данных для расчета трибун-*/
+.contentCalc {
+	&-contacts {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		width: 100%;
+		height: 100%;
+		padding: 10px;
+
+		&__titele {
+			font-size: 26px;
+			color: #fff;
+			text-align: center;
+			letter-spacing: 2px;
+			margin-bottom: 20px;
+
+			@media (max-width: 325px) {
+				font-size: 22px;
+			}
+		}
+
+		&__form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 80%;
+
+			@media (max-width: 430px) {
+				width: 100%;
+			}
+
+			& > form {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.contactForm {
+	&-input {
+		position: relative;
+		margin-bottom: 60px;
+		width: 85%;
+
+		@media (max-width: 430px) {
+			width: 90%;
+		}
+
+		@media (max-width: 325px) {
+			width: 98%;
+			margin-bottom: 40px;
+		}
+
+		&:nth-child(6) {
+			margin-bottom: 0px;
+		}
+
+		& > input,
+		& > textarea {
+			position: relative;
+			background: transparent;
+			outline: none;
+			border: none;
+			width: 100%;
+			color: #fff;
+			padding-bottom: 10px;
+			font-size: 16px;
+			letter-spacing: 1px;
+			font-weight: 300;
+			border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+		}
+
+		& > span {
+			position: absolute;
+			left: 0;
+			font-size: 16px;
+			font-weight: 300;
+			display: inline-block;
+			pointer-events: none;
+			letter-spacing: 1px;
+			color: rgba(255, 255, 255, 0.7);
+			transition: 0.3s;
+		}
+
+		& > input:focus ~ span,
+		> textarea:focus ~ span,
+		> input:valid ~ span,
+		> textarea:valid ~ span {
+			transform: translateY(-24px);
+			color: #2692ff;
+			font-size: 14px;
+		}
+
+		& > input:focus,
+		> textarea:focus,
+		> input:valid,
+		> textarea:valid {
+			border-bottom-color: #fff;
+		}
+	}
+
+	&-btn input[type='submit'] {
+		display: block;
+		width: 250px;
+		color: #3d3d3d;
+		text-transform: uppercase;
+		//font-size: 16px;
+		@include adaptiv-font(16, 12);
+		font-weight: 400;
+		letter-spacing: 0.2em;
+		text-align: center;
+		padding: 10px 20px;
+		border-radius: 5px;
+		box-shadow: 0 2px 25px rgba(255, 255, 255, 0.45);
+		cursor: pointer;
+		background: rgb(201, 201, 201);
+		background: -moz-linear-gradient(
+			top,
+			rgba(201, 201, 201, 1) 0%,
+			rgba(246, 246, 246, 1) 2%,
+			rgba(38, 146, 255, 1) 99%,
+			rgba(117, 117, 119, 1) 100%
+		);
+		background: -webkit-linear-gradient(
+			top,
+			rgba(201, 201, 201, 1) 0%,
+			rgba(246, 246, 246, 1) 2%,
+			rgba(38, 146, 255, 1) 99%,
+			rgba(117, 117, 119, 1) 100%
+		);
+		background: linear-gradient(
+			to bottom,
+			rgba(201, 201, 201, 1) 0%,
+			rgba(246, 246, 246, 1) 2%,
+			rgba(38, 146, 255, 1) 99%,
+			rgba(117, 117, 119, 1) 100%
+		);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9c9c9', endColorstr='#757577', GradientType=0);
+		transition: 0.5s;
+
+		&:hover {
+			box-shadow: 0 2px 10px rgba(255, 255, 255, 0.45);
+		}
+
+		@media (max-width: 430px) {
+			width: 160px;
+		}
+	}
+}
+
+.popupThankYou {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 25;
+
+	&-content {
+		position: relative;
+		padding: 10px;
+		height: 300px;
+		width: 270px;
+		left: 50%;
+		top: 50%;
+		font-size: 18px;
+		color: rgb(255, 0, 0);
+		text-align: center;
+		font-weight: 600;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+		display: flex;
+		border-radius: 5px;
+		box-shadow: 0 2px 18px rgba(255, 255, 255, 0.6);
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+
+		& > img {
+			width: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+}
+
+//Анимация указателя на карте
+.ymaps-2-1-77-image {
+	animation-name: headShake;
+	//animation-name: shake;
+	//animation-name: pulse;
+	animation-timing-function: ease-in-out;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-delay: 3s;
+
+	&:hover {
+		animation-play-state: paused;
+	}
+}
+
+@import 'moduls-css/2.tribunes.scss';
+@import 'moduls-css/3.seats.scss';
+@import 'moduls-css/4.armchairs.scss';
+@import 'moduls-css/5.popup.scss';
+@import 'moduls-css/6.gallery.scss';
+@import 'moduls-css/1.about.scss';
+@import 'moduls-css/7.contacts.scss';
+@import 'moduls-css/../_help_scss/_popup.scss';
+@import 'moduls-css/8.animate.scss';

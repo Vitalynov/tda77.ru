@@ -1,0 +1,28 @@
+{
+    "021": {
+        "name": "СИДЕНЬЕ СТАДИОННОЕ КД-03 ЛУЖНИКИ",
+        "webp": "img/product/seats/luzhniki.webp",
+        "image": "img/product/seats/luzhniki.png",
+        "price": 450
+    },
+    "022": {
+        "name": "СИДЕНЬЕ СТАДИОННОЕ КД-18 ФОРВАРД 01",
+        "image": "img/product/seats/forvard01.png",
+        "price": 460
+    },
+    "023": {
+        "name": "СИДЕНЬЕ СТАДИОННОЕ АВАНГАРД",
+        "image": "img/product/seats/avangard.png",
+        "price": 500
+    },
+    "024": {
+        "name": "СИДЕНЬЕ СТАДИОННОЕ УЛЬТРА",
+        "image": "img/product/seats/ultra.png",
+        "price": 440
+    },
+    "025": {
+        "name": "СИДЕНЬЕ СТАДИОННОЕ АРЕНА",
+        "image": "img/product/seats/arena.png",
+        "price": 480
+    }
+}
